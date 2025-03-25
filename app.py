@@ -1,7 +1,11 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from fetch_pytrends import get_pokemon_trends
 
 app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('index.html')  # Serve the HTML file from templates
 
 @app.route('/trends', methods=['GET'])
 def trends():
