@@ -1,0 +1,232 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+input, button {
+    padding: 8px;
+    margin: 10px 0;
+}
+
+button {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+.error {
+    color: #dc3545;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #ffe6e6;
+    border: 1px solid #dc3545;
+}
+
+canvas {
+    max-height: 500px;
+    width: 100% !important;
+}
+
+.metrics-container {
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.metric-card {
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.metric-card h4 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.metric-card p {
+    margin: 10px 0;
+    color: #34495e;
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+
+.metric-card.trends-card {
+    grid-column: 1 / -1;
+}
+
+.metric-card.trends-card canvas {
+    min-height: 300px;
+    margin: 20px 0;
+}
+
+.total-score {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #4CAF50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);
+}
+
+.search-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.search-container input {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-right: 10px;
+    width: 300px;
+    transition: border-color 0.3s;
+}
+
+.search-container input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.search-container button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.metric-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.metric-label {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #4CAF50;
+    animation: spin 1s linear infinite;
+}
+
+.pokeball-loader {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(to bottom, #ff1a1a 50%, #f0f0f0 50%);
+    border-radius: 50%;
+    border: 4px solid #333;
+    animation: shake 1.25s cubic-bezier(.36,.07,.19,.97) infinite;
+    position: relative;
+}
+
+.pokeball-loader::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 3px solid #333;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0) rotate(0); }
+    20% { transform: translate(-10px, 0) rotate(-20deg); }
+    30% { transform: translate(10px, 0) rotate(20deg); }
+    50% { transform: translate(-10px, 0) rotate(-10deg); }
+    60% { transform: translate(10px, 0) rotate(10deg); }
+    100% { transform: translate(0, 0) rotate(0); }
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
